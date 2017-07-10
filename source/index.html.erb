@@ -1,0 +1,48 @@
+---
+title: Welcome to Middleman
+---
+
+<h1>
+  Middleman is Running
+</h1>
+
+<%= link_to(
+  "Read Documentation",
+  "https://middlemanapp.com/basics/templating_language/",
+  target: "_blank"
+) %>
+
+<h2>middleman commands</h2>
+<ul>
+  <li>middleman server</li>
+  <li>middleman build</li>
+</ul>
+
+<hr>
+<!--
+<%= link_to "my blog post", "blog/post1.html", class: "link" %>
+<% blog.articles[0...5].each do |article| %>
+  <article>
+    <h1>
+      <a href="<%= article.url %>"><%= article.title %></a>
+      <time><%= article.date.strftime('%b %e %Y') %></time>
+    </h1>
+
+    <%= article.summary(250, '>>') %>
+
+    <a href="<%= article.url %>">Read more</a>
+  </article>
+<% end %>
+-->
+
+<hr>
+
+<% sitemap.resources
+   .select { |resource| resource.path =~ /^cards\// }
+   .sort_by { |resource| resource.data.position }
+   .each do |resource| %>
+   <h2 class="question"><%= resource.data.title %></h2>
+   <div class="answer"><%= resource.render(:layout => false) %></div>
+   <%= link_to "link", resource.path, class: "link" %>
+<% end %>
+
