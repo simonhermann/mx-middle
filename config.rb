@@ -17,7 +17,7 @@ page '/*.txt', layout: false
 
 activate :blog do |blog|
   # set options on blog
-  blog.layout = "article_layout"
+  blog.layout = "card_layout"
   # blog.prefix = "blog"
   blog.sources = "blog/{title}.html"
   blog.permalink = "{title}.html"
